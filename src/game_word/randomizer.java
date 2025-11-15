@@ -1,0 +1,5 @@
+package game_word;
+
+public class randomizer {
+    // PEGA A LISTAGEM DE PALAVRAS E FAZ A RANDOMIZAÇÃO E ESCOLHE POSTERIOR QUAL SERÁ PALAVRA DO TESTE
+}
