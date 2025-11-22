@@ -5,12 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class word extends randomizer {
-    // ESSA CLASSE ELA TRABALHA TODA OPERAÇÃO COM A PALAVRA
-    // DESDE A LISTAGEM DO MÁXIMO NUMERO PRA ELE RANDOMIZAR
-    // QUANTO A SELEÇÃO DAS PALAVRAS/LEITURA DO ARQUIVO
-    // PRÓXIMA AÇÃO AGORA É RANDOMIZAR O NÚMERO E O QUE ELE SABER ID DA PALAVRA
-    // SALVAR PRA FAZER A SEPARAÇÃO DE LETRAS
+public class wordProvider implements randomizer {
+    // ESSA CLASSE JÁ CONSEGUE FAZER TODA RANDOMIZAÇÃO DA PALAVRA E SELECIONAR CONFORME DESEJADO
+    // AGORA TERÁ QUE CRIAR A MANEIRA DE APRESENTAR A QUANTIDADE DE PALAVRAS
+    // E DEIXAR COMO EXEMPLO: ______ = BATATA
     int maxNumber;
     final int minNumber = 0;
     ArrayList<String> words;
@@ -18,14 +16,16 @@ public class word extends randomizer {
     String word;
 
     public String selectWord() {
-        randomizer randomizer = new randomizer();
-        indexWord = randomizer.getNumInRange(getMinNumber(), getMaxNumber());
+        setWords();
+        indexWord = getNumInRange(getMinNumber(), getMaxNumber());
         return getWords().get(indexWord);
     }
 
-    public word() {
-    setWords();
+    public wordProvider() {
     word = selectWord();
+    }
+    public String getWord() {
+        return word;
     }
 
     public int getMaxNumber() {
