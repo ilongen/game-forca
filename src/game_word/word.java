@@ -5,39 +5,46 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class word {
+public class word extends randomizer {
     // ESSA CLASSE ELA TRABALHA TODA OPERAÇÃO COM A PALAVRA
     // DESDE A LISTAGEM DO MÁXIMO NUMERO PRA ELE RANDOMIZAR
     // QUANTO A SELEÇÃO DAS PALAVRAS/LEITURA DO ARQUIVO
     // PRÓXIMA AÇÃO AGORA É RANDOMIZAR O NÚMERO E O QUE ELE SABER ID DA PALAVRA
     // SALVAR PRA FAZER A SEPARAÇÃO DE LETRAS
     int maxNumber;
+    final int minNumber = 0;
     ArrayList<String> words;
+    int indexWord;
+    String word;
+
+    public String selectWord() {
+        randomizer randomizer = new randomizer();
+        indexWord = randomizer.getNumInRange(getMinNumber(), getMaxNumber());
+        return getWords().get(indexWord);
+    }
 
     public word() {
-    setmaxNumber();
     setWords();
+    word = selectWord();
     }
 
     public int getMaxNumber() {
         return maxNumber;
     }
 
-    public ArrayList<String> getWords() {
-        return words;
+    public ArrayList<String> getWords() {return words;}
+
+    public int getMinNumber() {return minNumber;}
+
+    public void setMaxNumber(int maxNumber) {
+        this.maxNumber = maxNumber;
     }
 
-    public void setmaxNumber(){
-        this.maxNumber = lengthArray(0);
-    }
     public void setWords() {
         this.words = read(context());
     }
-    public int lengthArray(int number){
-        return number;
-    }
 
-    public String context(){
+    private String context(){
         Scanner input = new Scanner(System.in);
         String name_file = null;
         System.out.println("Escolha um contexto para o jogo da forca");
@@ -45,18 +52,15 @@ public class word {
         System.out.println("2- Filmes");
         System.out.println("3- Games");
         String choice = input.nextLine();
-        if (choice.equals("1")){
-            name_file = "anime.txt";
-        }
-        else if (choice.equals("2")){
-            name_file = "filmes.txt";
-        }
-        else if (choice.equals("3")){
-            name_file = "games.txt";
-        }
+        name_file = switch (choice) {
+            case "1" -> "anime.txt";
+            case "2" -> "filmes.txt";
+            case "3" -> "games.txt";
+            default -> name_file;
+        };
         return name_file;
     }
-    public ArrayList<String> read(String name_file){
+    private ArrayList<String> read(String name_file){
         final String path_folder = "src/game_word/";
         ArrayList<String> listWords = new ArrayList<>();
         try {
@@ -69,7 +73,7 @@ public class word {
                 listWords.add(row);
                 row = readFile.readLine();
             }
-            lengthArray(listWords.size());
+            setMaxNumber(listWords.size());
             return listWords;
 
 
