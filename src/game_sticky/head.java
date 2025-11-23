@@ -1,8 +1,17 @@
 package game_sticky;
 
-public class head implements paint {
-    // CONSTRUIR APENAS A PARTE DAS CABEÇA PARA FICAR VISUALMENTE NO TERMINAL
-    public head(){
-        System.out.println("test");
+public class head {
+    public static void desenhar() {
+        System.out.println("  |     O");
+        System.out.println("  |");
+        System.out.println("  |");
+        System.out.println("  |");
+    }
+
+    public static void desenharComMensagem(String mensagem) {
+        System.out.println("  |     O    " + mensagem);
+        System.out.println("  |");
+        System.out.println("  |");
+        System.out.println("  |");
     }
 }
