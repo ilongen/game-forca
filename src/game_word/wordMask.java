@@ -4,23 +4,16 @@ import java.util.Arrays;
 
 public class wordMask extends wordProvider{
 
-    @Override
-    public String selectWord() {
-        return super.selectWord();
-    }
-
-    private final String word = getWord();
+    private final String word = getWord().toUpperCase();
     private final char[] mask;
     public wordMask(){
-        mask = new char[this.word.length()];
+        mask = new char[word.length()];
         Arrays.fill(mask, '_');
-        for (int i = 0; i < this.word.length(); i++) {
-            if (this.word.charAt(i) == ' ') {
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == ' ') {
                 mask[i] = ' ';
             }
         }
-
-        System.out.println(mask);
     }
     public boolean guess(char c) {
         c = Character.toUpperCase(c);
