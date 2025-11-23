@@ -35,4 +35,9 @@ public class wordMask extends wordProvider{
     public boolean isComplete() {
         return !new String(mask).contains("_");
     }
+
+    // MÉTODO NOVO ADICIONADO para integração
+    public String getPalavraReal() {
+        return word;
+    }
 }

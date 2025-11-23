@@ -2,17 +2,27 @@ package game_sticky;
 
 public class Sticki {
     private int partesDesenhadas;
+    private int erros; // CAMPO NOVO ADICIONADO
 
     public Sticki() {
         this.partesDesenhadas = 0;
+        this.erros = 0; // INICIALIZAR NOVO CAMPO
     }
 
+    // MÉTODO NOVO ADICIONADO para integração
     public void adicionarParte() {
         if (partesDesenhadas < 6) {
             partesDesenhadas++;
+            erros++;
         }
     }
 
+    // MÉTODO NOVO ADICIONADO
+    public int getErros() {
+        return erros;
+    }
+
+    // O RESTO DO CÓDIGO PERMANECE IGUAL
     public int getPartesDesenhadas() {
         return partesDesenhadas;
     }
@@ -56,7 +66,6 @@ public class Sticki {
         System.out.println();
     }
 
-    // Métodos para chamar partes específicas
     public static void desenharParte(int parte) {
         System.out.println("  _______");
         System.out.println("  |     |");
