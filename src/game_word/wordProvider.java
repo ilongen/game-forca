@@ -25,6 +25,8 @@ public class wordProvider implements randomizer {
     // M. PRIVADOS -> 2
     // M. PUBLICOS -> 8
     // -----------
+
+    // Gatilho geral, responsável por selecionar a palavra e deixar reservada em uma váriavel.
     public String selectWord() {
         setWords();
         indexWord = getNumInRange(getMinNumber(), getMaxNumber());
@@ -50,8 +52,7 @@ public class wordProvider implements randomizer {
         this.maxNumber = maxNumber;
     }
 
-    // MÉTODO QUE SERVE PARA DAR UM GATILHO EM OUTROS DOIS MÉTODOS.
-    // setWords: PALAVRAS QUE RECEBE APÓS A LEITURA SOBRE UM ARQUIVO QUE GERA O CONTEXTO DO GAME
+    // setWords: DEFINE AS PALAVRAS QUE IRÁ RECEBER APÓS A LEITURA SOBRE UM ARQUIVO QUE GERA O CONTEXTO DO GAME
     public void setWords() {
         this.words = read(context());
     }
