@@ -37,5 +37,5 @@ void main(String[] args) {
         } else {
             System.out.println("💀 Game Over! Você perdeu.");
         }
-        System.out.println("A palavra era: " + mask.getPalavraReal());
+        System.out.println("A palavra era: " + mask.getWord());
     }

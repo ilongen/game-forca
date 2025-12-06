@@ -62,7 +62,7 @@ public class wordProvider implements randomizer {
     // E ESSE NÚMERO DETERMINARÁ O CAMINHO ESCOLHIDO PELO PRÓPRIO USUÁRIO E DEIXANDO SALVO PARA UM PRÓXIMO PASSO.
     private String context(){
         Scanner input = new Scanner(System.in);
-        String name_file = null;
+        String name_file;
         System.out.println("Escolha um contexto para o jogo da forca");
         System.out.println("1- Anime");
         System.out.println("2- Filmes");
@@ -72,7 +72,7 @@ public class wordProvider implements randomizer {
             case "1" -> "anime.txt";
             case "2" -> "filmes.txt";
             case "3" -> "games.txt";
-            default -> name_file;
+            default -> null;
         };
         return name_file;
     }
