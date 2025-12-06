@@ -4,16 +4,18 @@ import java.util.Arrays;
 
 public class wordMask extends wordProvider{
 
-    // ESSA CLASSE É RESPONSAVEL POR PEGAR A PALAVRA SELECIONADA DE SUA HERANÇA
-    // E MASCARAR ELA PRA FICAR INTUITIVO NO JOGO.
+    // ESSA CLASSE É RESPONSAVEL POR PEGAR A PALAVRA SELECIONADA DA SUA HERANÇA
+    // E MASCARAR ELA PARA FICAR INTUITIVO NO JOGO.
 
     // MÉTODOS TOTAL -> 4
     // M. PRIVADOS -> 0
     // M. PUBLICOS -> 4
     // -----------
 
+    // PEGA A PALAVRA QUE VEM DIRETAMENTE DO wordProvider
     private final String word = getWord().toUpperCase();
     private final char[] mask;
+    // CONSTRUTOR QUE DETERMINA A MÁSCARA E FAZ TODA A MODIFICAÇÃO PARA FICAR APENAS O TAMANHO DAS LETRAS.
     public wordMask(){
         mask = new char[word.length()];
         Arrays.fill(mask, '_');
@@ -23,6 +25,7 @@ public class wordMask extends wordProvider{
             }
         }
     }
+    // VALIDA ENTRADA DO USUÁRIO E VEJA SE ELE CONSEGUE ADIVINHAR A LETRA PERTECENTE A PALAVRA.
     public boolean guess(char c) {
         c = Character.toUpperCase(c);
         boolean hit = false;
@@ -39,7 +42,7 @@ public class wordMask extends wordProvider{
     public String getMaskedWord() {
         return new String(mask);
     }
-
+    // CASO COMPLETAR RETORNA SEM AS MASCARÁS.
     public boolean isComplete() {
         return !new String(mask).contains("_");
     }
