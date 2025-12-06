@@ -3,9 +3,8 @@ import game_word.consolePlayerInput;
 import game_word.playerInputHandler;
 import game_word.wordMask;
 
-// MUDAR o nome da classe para corresponder ao arquivo
-class Main { // REMOVIDO o 'public'
-    public static void main(String[] args) {
+// Método responsável por execução de todo ecossistema do jogo.
+void main(String[] args) {
         playerInputHandler input = new consolePlayerInput();
         wordMask mask = new wordMask();
         Sticki sticki = new Sticki();
@@ -40,4 +39,3 @@ class Main { // REMOVIDO o 'public'
         }
         System.out.println("A palavra era: " + mask.getPalavraReal());
     }
-}

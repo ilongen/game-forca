@@ -9,12 +9,22 @@ public class wordProvider implements randomizer {
     // ESSA CLASSE JÁ CONSEGUE FAZER TODA RANDOMIZAÇÃO DA PALAVRA E SELECIONAR CONFORME DESEJADO
     // AGORA TERÁ QUE CRIAR A MANEIRA DE APRESENTAR A QUANTIDADE DE PALAVRAS
     // E DEIXAR COMO EXEMPLO: ______ = BATATA
+
+    // VÁRIAVEIS CONSTANTES
+
+    // -----------
     int maxNumber;
     final int minNumber = 0;
     ArrayList<String> words;
     int indexWord;
     String word;
+    // -----------
 
+
+    // MÉTODOS TOTAL -> 10
+    // M. PRIVADOS -> 2
+    // M. PUBLICOS -> 8
+    // -----------
     public String selectWord() {
         setWords();
         indexWord = getNumInRange(getMinNumber(), getMaxNumber());
@@ -40,10 +50,15 @@ public class wordProvider implements randomizer {
         this.maxNumber = maxNumber;
     }
 
+    // MÉTODO QUE SERVE PARA DAR UM GATILHO EM OUTROS DOIS MÉTODOS.
+    // setWords: PALAVRAS QUE RECEBE APÓS A LEITURA SOBRE UM ARQUIVO QUE GERA O CONTEXTO DO GAME
     public void setWords() {
         this.words = read(context());
     }
 
+    // DETERMINANTE DE CONCEITO DO GAME, ABRE A POSSIBILIDADE DE DADOS QUE O JOGADOR IRÁ CONCORRER.
+    // ELE RECEBE UM NÚMERO DO USUÁRIO.
+    // E ESSE NÚMERO DETERMINARÁ O CAMINHO ESCOLHIDO PELO PRÓPRIO USUÁRIO E DEIXANDO SALVO PARA UM PRÓXIMO PASSO.
     private String context(){
         Scanner input = new Scanner(System.in);
         String name_file = null;
@@ -60,6 +75,8 @@ public class wordProvider implements randomizer {
         };
         return name_file;
     }
+    // RECEBE A ESCOLHA DO USUÁRIO PELO MÉTODO DO CONTEXTO E FAZ A LEITURA DO ARQUIVO TXT PARA ARMAZENAR EM UMA LISTA >
+    // REDIMENSIONÁVEL.
     private ArrayList<String> read(String name_file){
         final String path_folder = "src/game_word/";
         ArrayList<String> listWords = new ArrayList<>();
