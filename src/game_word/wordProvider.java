@@ -90,6 +90,7 @@ public class wordProvider implements randomizer {
                 listWords.add(row);
                 row = readFile.readLine();
             }
+            // ATUALIZA O NÚMERO MÁXIMO DE ACORDO COM O LIMITE FINAL DA LISTA DEPOIS DE SABER O COMPRIMENTO DELA.
             setMaxNumber(listWords.size());
             return listWords;
 
