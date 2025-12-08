@@ -1,36 +1,29 @@
 package forcagame.word.provider;
-import forcagame.word.random.Randomizer;
 
+import forcagame.word.random.Randomizer;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+  * <b>Class name: Provider</b><br>
+  * Describe: LER LISTA DE PALAVRAS TXT, RANDOMIZAR E SELECIONAR PALAVRA PARA O JOGO.
+ * <br>
+  * Date: 08.12.2025 : 15:11
+ * <br>
+  * Author: Ilongen
+ */
 public class Provider implements Randomizer {
-    /*
-     * Class name: Provider
-     * Describe: LER LISTA DE PALAVRAS TXT, RANDOMIZAR E SELECIONAR PALAVRA PARA O JOGO
-     * Date: 08.12.2025 : 15:11
-     * Author: Ilongen
-     */
 
     int maxNumber, indexWord;
-    final int minNumber = 0;
+    final int MIN_NUMBER = 0;
     ArrayList<String> words;
     String word;
 
-    /*
-     *
-     * MÉTODOS TOTAL -> 10
-     * M. PRIVADOS -> 2
-     * M. PUBLICOS -> 8
-     */
-
-    /* Gatilho geral, responsável por selecionar a palavra e deixar reservada em uma váriavel.*/
     public String selectWord() {
         setWords();
-        indexWord = getNumInRange(getMinNumber(), getMaxNumber());
+        indexWord = getNumInRange(getMIN_NUMBER(), getMaxNumber());
         return getWords().get(indexWord);
     }
 
@@ -50,24 +43,18 @@ public class Provider implements Randomizer {
         return words;
     }
 
-    public int getMinNumber() {
-        return minNumber;
+    public int getMIN_NUMBER() {
+        return MIN_NUMBER;
     }
 
     public void setMaxNumber(int maxNumber) {
         this.maxNumber = maxNumber;
     }
 
-    /* setWords: DEFINE AS PALAVRAS QUE IRÁ RECEBER APÓS A LEITURA SOBRE UM ARQUIVO QUE GERA O CONTEXTO DO GAME*/
     public void setWords() {
         this.words = read(context());
     }
 
-    /*
-    * DETERMINANTE DE CONCEITO DO GAME, ABRE A POSSIBILIDADE DE DADOS QUE O JOGADOR IRÁ CONCORRER.
-    * ELE RECEBE UM NÚMERO DO USUÁRIO.
-    * E ESSE NÚMERO DETERMINARÁ O CAMINHO ESCOLHIDO PELO PRÓPRIO USUÁRIO E DEIXANDO SALVO PARA UM PRÓXIMO PASSO.
-    */
     private String context() {
         Scanner input = new Scanner(System.in);
         String name_file;
@@ -85,9 +72,6 @@ public class Provider implements Randomizer {
         return name_file;
     }
 
-    /* RECEBE A ESCOLHA DO USUÁRIO PELO MÉTODO DO CONTEXTO E FAZ A LEITURA DO ARQUIVO TXT PARA ARMAZENAR EM UMA LISTA >
-    * REDIMENSIONÁVEL.
-    */
     private ArrayList<String> read(String name_file) {
         final String path_folder = "src/forcagame/word/list/";
         ArrayList<String> listWords = new ArrayList<>();
@@ -101,13 +85,12 @@ public class Provider implements Randomizer {
                 listWords.add(row);
                 row = readFile.readLine();
             }
-            setMaxNumber(listWords.size()); // ATUALIZA O NÚMERO MÁXIMO DE ACORDO COM O LIMITE FINAL DA LISTA
+            setMaxNumber(listWords.size());
             return listWords;
 
 
         } catch (IOException e) {
-            System.err.printf("Erro na abertura do arquivo: %s.\n",
-                    e.getMessage());
+            System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
         }
         return null;
     }
