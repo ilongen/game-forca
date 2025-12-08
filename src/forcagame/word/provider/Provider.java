@@ -8,27 +8,26 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Provider implements Randomizer {
-    // ESSA CLASSE JÁ CONSEGUE FAZER TODA RANDOMIZAÇÃO DA PALAVRA E SELECIONAR CONFORME DESEJADO
-    // AGORA TERÁ QUE CRIAR A MANEIRA DE APRESENTAR A QUANTIDADE DE PALAVRAS
-    // E DEIXAR COMO EXEMPLO: ______ = BATATA
+    /*
+     * Class name: Provider
+     * Describe: LER LISTA DE PALAVRAS TXT, RANDOMIZAR E SELECIONAR PALAVRA PARA O JOGO
+     * Date: 08.12.2025 : 15:11
+     * Author: Ilongen
+     */
 
-    // VÁRIAVEIS CONSTANTES
-
-    // -----------
-    int maxNumber;
+    int maxNumber, indexWord;
     final int minNumber = 0;
     ArrayList<String> words;
-    int indexWord;
     String word;
-    // -----------
 
+    /*
+     *
+     * MÉTODOS TOTAL -> 10
+     * M. PRIVADOS -> 2
+     * M. PUBLICOS -> 8
+     */
 
-    // MÉTODOS TOTAL -> 10
-    // M. PRIVADOS -> 2
-    // M. PUBLICOS -> 8
-    // -----------
-
-    // Gatilho geral, responsável por selecionar a palavra e deixar reservada em uma váriavel.
+    /* Gatilho geral, responsável por selecionar a palavra e deixar reservada em uma váriavel.*/
     public String selectWord() {
         setWords();
         indexWord = getNumInRange(getMinNumber(), getMaxNumber());
@@ -36,8 +35,9 @@ public class Provider implements Randomizer {
     }
 
     public Provider() {
-    word = selectWord();
+        word = selectWord();
     }
+
     public String getWord() {
         return word;
     }
@@ -46,23 +46,29 @@ public class Provider implements Randomizer {
         return maxNumber;
     }
 
-    public ArrayList<String> getWords() {return words;}
+    public ArrayList<String> getWords() {
+        return words;
+    }
 
-    public int getMinNumber() {return minNumber;}
+    public int getMinNumber() {
+        return minNumber;
+    }
 
     public void setMaxNumber(int maxNumber) {
         this.maxNumber = maxNumber;
     }
 
-    // setWords: DEFINE AS PALAVRAS QUE IRÁ RECEBER APÓS A LEITURA SOBRE UM ARQUIVO QUE GERA O CONTEXTO DO GAME
+    /* setWords: DEFINE AS PALAVRAS QUE IRÁ RECEBER APÓS A LEITURA SOBRE UM ARQUIVO QUE GERA O CONTEXTO DO GAME*/
     public void setWords() {
         this.words = read(context());
     }
 
-    // DETERMINANTE DE CONCEITO DO GAME, ABRE A POSSIBILIDADE DE DADOS QUE O JOGADOR IRÁ CONCORRER.
-    // ELE RECEBE UM NÚMERO DO USUÁRIO.
-    // E ESSE NÚMERO DETERMINARÁ O CAMINHO ESCOLHIDO PELO PRÓPRIO USUÁRIO E DEIXANDO SALVO PARA UM PRÓXIMO PASSO.
-    private String context(){
+    /*
+    * DETERMINANTE DE CONCEITO DO GAME, ABRE A POSSIBILIDADE DE DADOS QUE O JOGADOR IRÁ CONCORRER.
+    * ELE RECEBE UM NÚMERO DO USUÁRIO.
+    * E ESSE NÚMERO DETERMINARÁ O CAMINHO ESCOLHIDO PELO PRÓPRIO USUÁRIO E DEIXANDO SALVO PARA UM PRÓXIMO PASSO.
+    */
+    private String context() {
         Scanner input = new Scanner(System.in);
         String name_file;
         System.out.println("Escolha um contexto para o jogo da forca");
@@ -78,9 +84,11 @@ public class Provider implements Randomizer {
         };
         return name_file;
     }
-    // RECEBE A ESCOLHA DO USUÁRIO PELO MÉTODO DO CONTEXTO E FAZ A LEITURA DO ARQUIVO TXT PARA ARMAZENAR EM UMA LISTA >
-    // REDIMENSIONÁVEL.
-    private ArrayList<String> read(String name_file){
+
+    /* RECEBE A ESCOLHA DO USUÁRIO PELO MÉTODO DO CONTEXTO E FAZ A LEITURA DO ARQUIVO TXT PARA ARMAZENAR EM UMA LISTA >
+    * REDIMENSIONÁVEL.
+    */
+    private ArrayList<String> read(String name_file) {
         final String path_folder = "src/forcagame/word/list/";
         ArrayList<String> listWords = new ArrayList<>();
         try {
@@ -93,8 +101,7 @@ public class Provider implements Randomizer {
                 listWords.add(row);
                 row = readFile.readLine();
             }
-            // ATUALIZA O NÚMERO MÁXIMO DE ACORDO COM O LIMITE FINAL DA LISTA DEPOIS DE SABER O COMPRIMENTO DELA.
-            setMaxNumber(listWords.size());
+            setMaxNumber(listWords.size()); // ATUALIZA O NÚMERO MÁXIMO DE ACORDO COM O LIMITE FINAL DA LISTA
             return listWords;
 
 
