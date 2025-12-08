@@ -1,4 +1,9 @@
-package game_sticky;
+package forcagame.sticky.paint;
+
+import forcagame.sticky.body.arms;
+import forcagame.sticky.body.body;
+import forcagame.sticky.body.head;
+import forcagame.sticky.body.legs;
 
 public class Sticki {
     private int partesDesenhadas;
@@ -20,11 +25,6 @@ public class Sticki {
     // MÉTODO NOVO ADICIONADO
     public int getErros() {
         return erros;
-    }
-
-    // O RESTO DO CÓDIGO PERMANECE IGUAL
-    public int getPartesDesenhadas() {
-        return partesDesenhadas;
     }
 
     public boolean jogoAcabou() {
@@ -66,38 +66,4 @@ public class Sticki {
         System.out.println();
     }
 
-    public static void desenharParte(int parte) {
-        System.out.println("  _______");
-        System.out.println("  |     |");
-
-        switch (parte) {
-            case 1:
-                head.desenhar();
-                break;
-            case 2:
-                body.desenhar();
-                break;
-            case 3:
-                arms.desenharBracoEsquerdo();
-                break;
-            case 4:
-                arms.desenharBracosCompletos();
-                break;
-            case 5:
-                legs.desenharPernaEsquerda();
-                break;
-            case 6:
-                legs.desenharPernasCompletas();
-                break;
-            default:
-                System.out.println("  |");
-                System.out.println("  |");
-                System.out.println("  |");
-                System.out.println("  |");
-                break;
-        }
-
-        System.out.println("__|__");
-        System.out.println();
-    }
 }

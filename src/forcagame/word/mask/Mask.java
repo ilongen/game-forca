@@ -1,8 +1,10 @@
-package game_word;
+package forcagame.word.mask;
+
+import forcagame.word.provider.Provider;
 
 import java.util.Arrays;
 
-public class wordMask extends wordProvider{
+public class Mask extends Provider {
 
     // ESSA CLASSE É RESPONSAVEL POR PEGAR A PALAVRA SELECIONADA DA SUA HERANÇA
     // E MASCARAR ELA PARA FICAR INTUITIVO NO JOGO.
@@ -16,7 +18,7 @@ public class wordMask extends wordProvider{
     private final String word = getWord().toUpperCase();
     private final char[] mask;
     // CONSTRUTOR QUE DETERMINA A MÁSCARA E FAZ TODA A MODIFICAÇÃO PARA FICAR APENAS O TAMANHO DAS LETRAS.
-    public wordMask(){
+    public Mask(){
         mask = new char[word.length()];
         Arrays.fill(mask, '_');
         for (int i = 0; i < word.length(); i++) {

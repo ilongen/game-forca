@@ -1,9 +1,9 @@
-package game_word;
+package forcagame.word.player;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class consolePlayerInput implements playerInputHandler {
+public class ConPlayerInput implements PlayerInputHandler {
     private final Scanner scanner = new Scanner(System.in);
     ArrayList<String> charAttempts = new ArrayList<>();
     @Override

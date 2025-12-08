@@ -1,6 +1,6 @@
-package game_word;
+package forcagame.word.random;
 import java.util.Random;
-public interface randomizer{
+public interface Randomizer {
 
      default int getNumInRange(int min, int max){
         Random rand = new Random();

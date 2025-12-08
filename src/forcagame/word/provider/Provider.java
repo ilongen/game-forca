@@ -1,11 +1,13 @@
-package game_word;
+package forcagame.word.provider;
+import forcagame.word.random.Randomizer;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class wordProvider implements randomizer {
+public class Provider implements Randomizer {
     // ESSA CLASSE JÁ CONSEGUE FAZER TODA RANDOMIZAÇÃO DA PALAVRA E SELECIONAR CONFORME DESEJADO
     // AGORA TERÁ QUE CRIAR A MANEIRA DE APRESENTAR A QUANTIDADE DE PALAVRAS
     // E DEIXAR COMO EXEMPLO: ______ = BATATA
@@ -33,7 +35,7 @@ public class wordProvider implements randomizer {
         return getWords().get(indexWord);
     }
 
-    public wordProvider() {
+    public Provider() {
     word = selectWord();
     }
     public String getWord() {
@@ -79,7 +81,7 @@ public class wordProvider implements randomizer {
     // RECEBE A ESCOLHA DO USUÁRIO PELO MÉTODO DO CONTEXTO E FAZ A LEITURA DO ARQUIVO TXT PARA ARMAZENAR EM UMA LISTA >
     // REDIMENSIONÁVEL.
     private ArrayList<String> read(String name_file){
-        final String path_folder = "src/game_word/";
+        final String path_folder = "src/forcagame/word/list/";
         ArrayList<String> listWords = new ArrayList<>();
         try {
             FileReader file = new FileReader(path_folder + name_file);

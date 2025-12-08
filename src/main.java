@@ -1,12 +1,12 @@
-import game_sticky.Sticki;
-import game_word.consolePlayerInput;
-import game_word.playerInputHandler;
-import game_word.wordMask;
+import forcagame.sticky.paint.Sticki;
+import forcagame.word.player.ConPlayerInput;
+import forcagame.word.player.PlayerInputHandler;
+import forcagame.word.mask.Mask;
 
 // Método responsável por execução de todo ecossistema do jogo.
-void main(String[] args) {
-        playerInputHandler input = new consolePlayerInput();
-        wordMask mask = new wordMask();
+void main() {
+        PlayerInputHandler input = new ConPlayerInput();
+        Mask mask = new Mask();
         Sticki sticki = new Sticki();
 
         System.out.println("=== JOGO DA FORCA ===");
