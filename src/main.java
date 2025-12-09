@@ -3,7 +3,6 @@ import forcagame.player.PlayerInputConsole;
 import forcagame.player.PlayerInputHandler;
 import forcagame.word.mask.Mask;
 
-// Método responsável por execução de todo ecossistema do jogo.
 void main() {
         PlayerInputHandler input = new PlayerInputConsole();
         Mask mask = new Mask();
