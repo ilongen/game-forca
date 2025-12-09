@@ -7,19 +7,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
-  * <b>Class name: Provider</b><br>
-  * Describe: LER LISTA DE PALAVRAS TXT, RANDOMIZAR E SELECIONAR PALAVRA PARA O JOGO.
- * <br>
-  * Date: 08.12.2025 : 15:11
- * <br>
-  * Author: Ilongen
+ * <h3>Classname: Provider</h1>
+ * <h4>Version: 1.0</h2>
+ * <p>Describe: It receives a list of words in txt format, shuffles them, and randomly selects one word.</p>
+ *
+ * <b><i>Author: Ilongen</i></b>
  */
 public class Provider implements Randomizer {
 
     int maxNumber, indexWord;
-    final int MIN_NUMBER = 0;
+    static final int MIN_NUMBER = 0;
     ArrayList<String> words;
     String word;
+    static final String PATH_FOLDER = "src/forcagame/word/list/";
+    Scanner input = new Scanner(System.in);
+
 
     public String selectWord() {
         setWords();
@@ -52,11 +54,10 @@ public class Provider implements Randomizer {
     }
 
     public void setWords() {
-        this.words = read(context());
+        this.words = readingWords(chooseCategory());
     }
 
-    private String context() {
-        Scanner input = new Scanner(System.in);
+    private String chooseCategory() {
         String name_file;
         System.out.println("Escolha um contexto para o jogo da forca");
         System.out.println("1- Anime");
@@ -72,11 +73,10 @@ public class Provider implements Randomizer {
         return name_file;
     }
 
-    private ArrayList<String> read(String name_file) {
-        final String path_folder = "src/forcagame/word/list/";
+    private ArrayList<String> readingWords(String name_file) {
         ArrayList<String> listWords = new ArrayList<>();
         try {
-            FileReader file = new FileReader(path_folder + name_file);
+            FileReader file = new FileReader(PATH_FOLDER + name_file);
             BufferedReader readFile = new BufferedReader(file);
 
             String row = readFile.readLine();
