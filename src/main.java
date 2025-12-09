@@ -1,11 +1,11 @@
 import forcagame.sticky.paint.Sticki;
-import forcagame.word.player.ConPlayerInput;
-import forcagame.word.player.PlayerInputHandler;
+import forcagame.player.PlayerInputConsole;
+import forcagame.player.PlayerInputHandler;
 import forcagame.word.mask.Mask;
 
 // Método responsável por execução de todo ecossistema do jogo.
 void main() {
-        PlayerInputHandler input = new ConPlayerInput();
+        PlayerInputHandler input = new PlayerInputConsole();
         Mask mask = new Mask();
         Sticki sticki = new Sticki();
 

@@ -22,7 +22,6 @@ public class Provider implements Randomizer {
     static final String PATH_FOLDER = "src/forcagame/word/list/";
     Scanner input = new Scanner(System.in);
 
-
     public String selectWord() {
         setWords();
         indexWord = getNumInRange(getMIN_NUMBER(), getMaxNumber());

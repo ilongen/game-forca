@@ -1,4 +1,4 @@
-package forcagame.word.player;
+package forcagame.player;
 
 public interface PlayerInputHandler {
     char getGuess();
