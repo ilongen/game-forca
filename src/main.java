@@ -1,20 +1,23 @@
-import forcagame.sticky.paint.Sticki;
+import forcagame.sticky.paint.Sticky;
 import forcagame.player.PlayerInputConsole;
-import forcagame.player.PlayerInputHandler;
+import forcagame.word.provider.Provider;
 import forcagame.word.mask.Mask;
 
 void main() {
-        PlayerInputHandler input = new PlayerInputConsole();
-        Mask mask = new Mask();
-        Sticki sticki = new Sticki();
+        PlayerInputConsole input = new PlayerInputConsole();
+        String category = input.chooseCategory();
+        Provider provider = new Provider(category);
+        String word = provider.getWord();
+        Mask mask = new Mask(word);
+        Sticky sticky = new Sticky();
 
         System.out.println("=== JOGO DA FORCA ===");
 
-        while (!mask.isComplete() && !sticki.jogoAcabou()) {
+        while (!mask.isComplete() && !sticky.endGame()) {
             System.out.println("\n========================");
-            sticki.desenharForca();
+            sticky.desenharForca();
             System.out.println("Palavra: " + mask.getMaskedWord());
-            System.out.println("Erros: " + sticki.getErros() + "/6");
+            System.out.println("Erros: " + sticky.getCountError() + "/6");
             System.out.println("========================");
 
             char guess = input.getGuess();
@@ -24,17 +27,17 @@ void main() {
                 System.out.println("✔ Acertou!");
             } else {
                 System.out.println("✖ Errou!");
-                sticki.adicionarParte();
+                sticky.adicionarParte();
             }
         }
 
         System.out.println("\n=== FIM DE JOGO ===");
-        sticki.desenharForca();
+        sticky.desenharForca();
 
         if (mask.isComplete()) {
             System.out.println("🎉 PARABÉNS! Você ganhou!");
         } else {
             System.out.println("💀 Game Over! Você perdeu.");
         }
-        System.out.println("A palavra era: " + mask.getWord());
+        System.out.println("A palavra era: " + provider.getWord());
     }

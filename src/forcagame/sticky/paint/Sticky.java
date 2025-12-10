@@ -5,29 +5,29 @@ import forcagame.sticky.body.body;
 import forcagame.sticky.body.head;
 import forcagame.sticky.body.legs;
 
-public class Sticki {
+public class Sticky {
     private int partesDesenhadas;
-    private int erros; // CAMPO NOVO ADICIONADO
+    private int countError; // CAMPO NOVO ADICIONADO
 
-    public Sticki() {
+    public Sticky() {
         this.partesDesenhadas = 0;
-        this.erros = 0; // INICIALIZAR NOVO CAMPO
+        this.countError = 0; // INICIALIZAR NOVO CAMPO
     }
 
     // MÉTODO NOVO ADICIONADO para integração
     public void adicionarParte() {
         if (partesDesenhadas < 6) {
             partesDesenhadas++;
-            erros++;
+            countError++;
         }
     }
 
     // MÉTODO NOVO ADICIONADO
-    public int getErros() {
-        return erros;
+    public int getCountError() {
+        return countError;
     }
 
-    public boolean jogoAcabou() {
+    public boolean endGame() {
         return partesDesenhadas >= 6;
     }
 

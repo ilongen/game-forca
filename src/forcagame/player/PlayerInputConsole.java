@@ -3,9 +3,16 @@ package forcagame.player;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PlayerInputConsole implements PlayerInputHandler {
+public class PlayerInputConsole implements PlayerInputHandler,PlayerChooseCategory {
+
     private final Scanner scanner = new Scanner(System.in);
     ArrayList<String> charAttempts = new ArrayList<>();
+
+    @Override
+    public String chooseCategory() {
+        return PlayerChooseCategory.super.chooseCategory();
+    }
+
     @Override
     public char getGuess() {
         while (true) {
