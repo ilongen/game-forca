@@ -5,7 +5,7 @@ import forcagame.word.mask.Mask;
 
 void main() {
         PlayerInputConsole input = new PlayerInputConsole();
-        String category = input.chooseCategory();
+        String category = input.getNameFile();
         Provider provider = new Provider(category);
         String word = provider.getWord();
         Mask mask = new Mask(word);

@@ -3,14 +3,26 @@ package forcagame.player;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PlayerInputConsole implements PlayerInputHandler,PlayerChooseCategory {
+public class PlayerInputConsole implements PlayerInputHandler {
 
     private final Scanner scanner = new Scanner(System.in);
     ArrayList<String> charAttempts = new ArrayList<>();
 
     @Override
-    public String chooseCategory() {
-        return PlayerChooseCategory.super.chooseCategory();
+    public String getNameFile() {
+        String name_file;
+        System.out.println("Escolha um contexto para o jogo da forca");
+        System.out.println("1- Anime");
+        System.out.println("2- Filmes");
+        System.out.println("3- Games");
+        String choice = scanner.nextLine();
+        name_file = switch (choice) {
+            case "1" -> "anime.txt";
+            case "2" -> "filmes.txt";
+            case "3" -> "games.txt";
+            default -> null;
+        };
+        return name_file;
     }
 
     @Override
